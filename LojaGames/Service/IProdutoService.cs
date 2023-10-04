@@ -1,6 +1,6 @@
 ﻿using LojaGames.Model;
 
-namespace LojaGames.Service.Implements
+namespace LojaGames.Service
 {
     public interface IProdutoService
     {

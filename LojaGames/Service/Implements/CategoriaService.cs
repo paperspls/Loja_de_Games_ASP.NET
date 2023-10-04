@@ -21,7 +21,7 @@ namespace LojaGames.Service.Implements
                 .ToListAsync();
         }
 
-        public async Task<Categoria> GetById(long id)
+        public async Task<Categoria?> GetById(long id)
         {
             try
             {

@@ -2,9 +2,15 @@
 using FluentValidation;
 using LojaGames.Data;
 using LojaGames.Model;
+using LojaGames.Security.Implements;
+using LojaGames.Security;
+using LojaGames.Service;
 using LojaGames.Service.Implements;
 using LojaGames.Validator;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace LojaGames
 {
@@ -30,12 +36,36 @@ namespace LojaGames
            );
 
             builder.Services.AddTransient<IValidator<Produto>, ProdutoValidator>();
-
             builder.Services.AddTransient<IValidator<Categoria>, CategoriaValidator>();
+            builder.Services.AddTransient<IValidator<User>, UserValidator>();
+            builder.Services.AddTransient<IAuthService, AuthService>();
+
+            // Adicionar a Validação do Token JWT
+
+            builder.Services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+            {
+                var Key = Encoding.UTF8.GetBytes(Settings.Secret);
+                o.SaveToken = true;
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Key)
+                };
+            });
+
+
 
             builder.Services.AddScoped<IProdutoService, ProdutoService>();
-
             builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+            builder.Services.AddScoped<IUserService, UserService>();
+
 
 
             builder.Services.AddControllers();
@@ -70,6 +100,8 @@ namespace LojaGames
             }
 
             app.UseAuthorization();
+
+            app.UseAuthentication();
 
             app.UseCors("MyPolicy");
 

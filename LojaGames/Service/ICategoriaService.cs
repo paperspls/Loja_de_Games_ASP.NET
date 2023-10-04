@@ -1,12 +1,12 @@
 ﻿using LojaGames.Model;
 
-namespace LojaGames.Service.Implements
+namespace LojaGames.Service
 {
     public interface ICategoriaService
     {
         Task<IEnumerable<Categoria>> GetAll();
 
-        Task<Categoria> GetById(long id);
+        Task<Categoria?> GetById(long id);
 
         Task<IEnumerable<Categoria>> GetByTipo(string tipo);
 
