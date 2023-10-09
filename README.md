@@ -1,4 +1,11 @@
-**README.md**
+<p align="center">
+<img  height="350em" src="https://github.com/paperspls/Loja_de_Games_ASP.NET/blob/main/repositoryimage.jpeg">
+</p>
+
+<div align="center">
+    
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Loja_de_Games_ASP.NET&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fpaperspls%2FLoja_de_Games_ASP.NET%2Fmain%2FLojaGames%2FProperties%2FlaunchSettings.json)
+</div>
 
 # 🎮 Loja de Games ASP.NET
 
