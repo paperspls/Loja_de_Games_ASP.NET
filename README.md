@@ -29,12 +29,12 @@ Bem-vindo à Loja de Games ASP.NET, um projeto em desenvolvimento durante o boot
 
 1. **Clone o Repositório:**
     ```bash
-    git clone https://github.com/seu-usuario/loja-de-games-aspnet.git
+    git clone https://github.com/paperspls/Loja_de_Games_ASP.NET.git
     ```
 
 2. **Acesse o Diretório:**
     ```bash
-    cd loja-de-games-aspnet
+    cd LojaGames
     ```
 
 3. **Execute o Projeto:**
@@ -52,8 +52,6 @@ Bem-vindo à Loja de Games ASP.NET, um projeto em desenvolvimento durante o boot
 - **C#:** Linguagem de programação utilizada para a lógica de backend.
 
 - **Entity Framework:** ORM utilizado para interagir com o banco de dados.
-
-- **HTML, CSS, JavaScript:** Tecnologias web fundamentais para a construção da interface do usuário.
 
 - **SQL Server:** Banco de dados utilizado para armazenar as informações da loja.
 
